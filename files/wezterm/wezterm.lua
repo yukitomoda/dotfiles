@@ -10,7 +10,7 @@ config.default_prog = { 'nu', '-l' }
 
 -- 見た目
 config.color_scheme = 'Wombat'
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.9
 config.font = wezterm.font 'Hack Nerd Font'
 config.font_size = 18
 
