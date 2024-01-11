@@ -36,6 +36,9 @@ def is-ubuntu [] {
 def create-dir-symlink [$target: string, $dest: string] {
   let target = ($target | path expand -n)
   let dest = ($dest | path expand -n)
+
+  mkdir ($dest | path dirname)
+  
   if (is-executable ln) {
     run-external "ln" "-s" $target $dest
   } else if ((is-windows) or (is-executable mklink)) {
@@ -99,6 +102,15 @@ do {
 
   confirm-overwrite $configDir {||
     create-dir-symlink (config-path nushell) $in
+  }
+}
+
+# nuscripts (nushell カスタムスクリプト)
+do {
+  let configDir = ($env.DEFAULT_NU_LIB_DIR | path join 'nuscripts');
+
+  confirm-overwrite $configDir {||
+    create-dir-symlink (config-path nuscripts) $in
   }
 }
 
