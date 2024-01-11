@@ -1,15 +1,15 @@
 #!/usr/bin/env nu
 
-def is-executable [$app: string] {
+def is-executable [app: string] {
   (which $app | length) > 0
 }
 
-def is-symlink [$path: string] {
+def is-symlink [path: string] {
   let path = ($path | path expand -n)
   ($path | path type) == "symlink"
 }
 
-def rm-dir-symlink [$path: string] {
+def rm-dir-symlink [path: string] {
   let path = ($path | path expand -n)
   if (is-windows) {
     # Windows版nushellのバグ（ディレクトリのシンボリックリンクを削除できない）
@@ -33,7 +33,7 @@ def is-ubuntu [] {
   (get-host-name) == "Ubuntu"
 }
 
-def create-dir-symlink [$target: string, $dest: string] {
+def create-dir-symlink [target: string, dest: string] {
   let target = ($target | path expand -n)
   let dest = ($dest | path expand -n)
 
@@ -50,7 +50,7 @@ def create-dir-symlink [$target: string, $dest: string] {
   }
 }
 
-def confirm-overwrite [$path: string, $action: closure] {
+def confirm-overwrite [path: string, action: closure] {
   let path = ($path | path expand -n)
 
   if ($path | path exists) {
@@ -73,7 +73,7 @@ def confirm-overwrite [$path: string, $action: closure] {
   $path | do $action
 }
 
-def config-path [$subpath: string] {
+def config-path [subpath: string] {
   ($env.FILE_PWD) | path join "files" $subpath
 }
 
