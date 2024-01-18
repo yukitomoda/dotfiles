@@ -15,7 +15,7 @@ config.colors = {
   scrollbar_thumb = '#226688'
 }
 config.window_background_opacity = 0.9
-config.font = wezterm.font 'Hack Nerd Font'
-config.font_size = 18
+config.font = wezterm.font 'Cica'
+config.font_size = 20
 config.enable_scroll_bar = true
 return config
