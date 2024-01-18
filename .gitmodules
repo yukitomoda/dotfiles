@@ -1,3 +1,6 @@
 [submodule "files/nuscripts"]
 	path = files/nuscripts
 	url = https://github.com/yukitomoda/nuscripts.git
+[submodule "files/nushell/nuscripts"]
+	path = files/nushell/nuscripts
+	url = https://github.com/yukitomoda/nuscripts.git
