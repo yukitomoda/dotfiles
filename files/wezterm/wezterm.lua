@@ -9,6 +9,7 @@ end
 config.default_prog = { 'nu', '-l' }
 
 -- 見た目
+config.front_end = 'WebGpu'
 config.color_scheme = 'Wombat'
 config.colors = {
   scrollbar_thumb = '#226688'
