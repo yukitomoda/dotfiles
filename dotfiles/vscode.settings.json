@@ -1,0 +1,93 @@
+{
+  "editor.minimap.enabled": false,
+  "diffEditor.codeLens": true,
+  "window.enableMenuBarMnemonics": false,
+  "window.menuBarVisibility": "compact",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    }
+  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "debug.onTaskErrors": "abort",
+  "git.autofetch": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.configPath": ".prettierrc.yml",
+  "prettier.prettierPath": "./node_modules/prettier",
+  "window.zoomLevel": 3,
+  "githubPullRequests.queries": [
+    {
+      "label": "自分のレビュー待ち",
+      "query": "is:open review-requested:${user}"
+    },
+    {
+      "label": "自分に割り当て済み",
+      "query": "is:open assignee:${user}"
+    },
+    {
+      "label": "自分が作成",
+      "query": "is:open author:${user}"
+    }
+  ],
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Cica",
+  "files.associations": {
+    "": ""
+  },
+  "githubPullRequests.fileListLayout": "tree",
+  "debug.console.fontFamily": "Cica",
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "cargo.automaticCheck": false,
+  "rust-analyzer.diagnostics.warningsAsHint": [
+    "dead_code"
+  ],
+  "terminal.integrated.defaultProfile.linux": "Nushell",
+  "terminal.integrated.defaultProfile.windows": "Nushell",
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "githubPullRequests.pullBranch": "never",
+  "git.openRepositoryInParentFolders": "never"
+}

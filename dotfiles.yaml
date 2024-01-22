@@ -1,0 +1,21 @@
+entries:
+  nushell:
+    type: dir
+    path:
+      Windows: ~\AppData\Roaming\nushell
+      Ubuntu: ~/.config/nushell
+  wezterm:
+    type: dir
+    path:
+      Windows: ~\.config\wezterm
+      Ubuntu: ~/.config/wezterm
+  nvim:
+    type: dir
+    path:
+      Windows: ~\AppData\Local\nvim
+      Ubuntu: ~/.config/nvim
+  vscode.settings.json:
+    type: file
+    path:
+      Windows: ~\AppData\Roaming\Code\User\settings.json
+      Ubuntu: ~/.config/Code/User/settings.json
