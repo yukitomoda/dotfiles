@@ -26,11 +26,13 @@ end
 
 return {
     'neovim/nvim-lspconfig',
+    dependencies = { 'williamboman/mason-lspconfig.nvim' },
     config = function()
         -- LSPのセットアップ
         local lspconfig = require'lspconfig'
         lspconfig.nushell.setup{}
         setup_lua_ls(lspconfig)
+        lspconfig.rust_analyzer.setup{}
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
