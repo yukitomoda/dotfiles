@@ -43,6 +43,10 @@ return {
             "nvim-telescope/telescope.nvim",
             "ibhagwan/fzf-lua",
         },
-        config = true
+        config = function()
+          local neogit = require('neogit')
+          neogit.setup()
+          vim.keymap.set('n', '<Leader>g', neogit.open)
+        end
     }
 }
