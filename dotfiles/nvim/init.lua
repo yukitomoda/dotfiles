@@ -12,7 +12,6 @@ vim.o.shellquote = ""
 vim.o.shellxquote = ""
 
 vim.api.nvim_set_keymap('n', '\\', '<Leader>', {})
-vim.api.nvim_set_keymap('n', '<Leader>', 'o', { noremap = true })
 
 -- lazy.vim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
