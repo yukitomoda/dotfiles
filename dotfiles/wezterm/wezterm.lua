@@ -25,18 +25,18 @@ config.enable_scroll_bar = true
 config.leader = { key = '\\', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
     -- pane
-    { key = 'h', mods = 'CTRL', action = act.ActivatePaneDirection 'Left' },
-    { key = 'j', mods = 'CTRL', action = act.ActivatePaneDirection 'Down' },
-    { key = 'k', mods = 'CTRL', action = act.ActivatePaneDirection 'Up' },
-    { key = 'l', mods = 'CTRL', action = act.ActivatePaneDirection 'Right' },
-    { key = 'h', mods = 'CTRL|SHIFT', action = act.SplitPane { direction = 'Left'} },
-    { key = 'j', mods = 'CTRL|SHIFT', action = act.SplitPane { direction = 'Down'} },
-    { key = 'k', mods = 'CTRL|SHIFT', action = act.SplitPane { direction = 'Up' } },
-    { key = 'l', mods = 'CTRL|SHIFT', action = act.SplitPane { direction = 'Right'} },
+    { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
+    { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+    { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
+    { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
+    { key = 'h', mods = 'ALT|SHIFT', action = act.SplitPane { direction = 'Left'} },
+    { key = 'j', mods = 'ALT|SHIFT', action = act.SplitPane { direction = 'Down'} },
+    { key = 'k', mods = 'ALT|SHIFT', action = act.SplitPane { direction = 'Up' } },
+    { key = 'l', mods = 'ALT|SHIFT', action = act.SplitPane { direction = 'Right'} },
     -- tab
-    { key = 't', mods = 'CTRL|SHIFT', action = act.SpawnTab 'DefaultDomain' },
-    { key = 'p', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
-    { key = 'n', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+    { key = 't', mods = 'ALT|SHIFT', action = act.SpawnTab 'DefaultDomain' },
+    { key = 'p', mods = 'ALT', action = act.ActivateTabRelative(-1) },
+    { key = 'n', mods = 'ALT', action = act.ActivateTabRelative(1) },
 }
 
 
