@@ -47,6 +47,9 @@ return {
           local neogit = require('neogit')
           neogit.setup()
           vim.keymap.set('n', '<Leader>g', neogit.open)
-        end
+        end,
+        keys = {
+            '<Leader>g'
+        }
     }
 }
