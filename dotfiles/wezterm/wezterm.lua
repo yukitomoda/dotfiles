@@ -10,10 +10,12 @@ end
 config.default_prog = { 'nu', '-l' }
 
 -- 見た目
-config.front_end = 'WebGpu'
+config.front_end = 'Software'
 config.color_scheme = 'Wombat'
 config.colors = {
-    scrollbar_thumb = '#226688'
+    scrollbar_thumb = '#226688',
+    cursor_bg = '#665566',
+    selection_bg = '#333355',
 }
 config.window_background_opacity = 0.9
 config.font = wezterm.font 'Cica'
