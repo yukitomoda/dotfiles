@@ -57,10 +57,10 @@ def create-dir-symlink [dest: string] : string -> nothing {
 
   mkdir ($dest | path dirname)
   
-  if ("ln" | is-executable) {
-    run-external "ln" "-s" $target $dest
-  } else if ((is-windows) or ("mklink" | is-executable)) {
+  if (is-windows) {
     mklink "/D" $dest $target
+  } else if ("ln" | is-executable) {
+    run-external "ln" "-s" $target $dest
   } else {
     error make {
       msg: "Cannot create symlink. ln or mklink command required."
@@ -73,10 +73,10 @@ def create-file-symlink [dest: string] : string -> nothing {
 
   mkdir ($dest | path dirname)
   
-  if ("ln" | is-executable) {
-    run-external "ln" "-s" $target $dest
-  } else if ((is-windows) or ("mklink" | is-executable)) {
+  if (is-windows) {
     mklink $dest $target
+  } else if ("ln" | is-executable) {
+    run-external "ln" "-s" $target $dest
   } else {
     error make {
       msg: "Cannot create symlink. ln or mklink command required."
