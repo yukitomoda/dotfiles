@@ -19,3 +19,8 @@ entries:
     path:
       Windows: ~\AppData\Roaming\Code\User\settings.json
       Ubuntu: ~/.config/Code/User/settings.json
+  lazygit:
+    type: dir
+    path:
+      Windows: ~\AppData\Roaming\lazygit
+      Ubuntu: ~/.config/lazygit
