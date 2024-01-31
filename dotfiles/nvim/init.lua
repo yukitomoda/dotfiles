@@ -11,7 +11,7 @@ vim.o.shellcmdflag = "-c"
 vim.o.shellquote = ""
 vim.o.shellxquote = ""
 
-vim.api.nvim_set_keymap('n', '\\', '<Leader>', {})
+vim.api.nvim_set_var('mapleader', ' ')
 
 -- lazy.vim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
