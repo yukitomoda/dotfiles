@@ -3,6 +3,14 @@ use std
 const DOTFILES_CONFIG = "dotfiles.yaml"
 const DOTFILES_DIR_PATH = "dotfiles"
 
+def to-string [] {
+    let input = $in
+    match ($input | describe) {
+        "binary" => ($input | decode),
+        _ => ($input | into string)
+    }
+}
+
 def when [
   cond: bool,
   filter: closure
@@ -58,7 +66,14 @@ def create-dir-symlink [dest: string] : string -> nothing {
   mkdir ($dest | path dirname)
   
   if (is-windows) {
-    mklink "/D" $dest $target
+    let result = do { mklink "/D" $dest $target } | complete 
+    let exit_code = $result.exit_code
+    if ($exit_code != 0) {
+      let stderr = $result.stderr | to-string
+      error make {
+        msg: $"Cannot create symlink using mklink\(($exit_code)\): ($stderr)\n Try to run this script with administrator privileges."
+      }
+    }
   } else if ("ln" | is-executable) {
     run-external "ln" "-s" $target $dest
   } else {
@@ -74,7 +89,14 @@ def create-file-symlink [dest: string] : string -> nothing {
   mkdir ($dest | path dirname)
   
   if (is-windows) {
-    mklink $dest $target
+    let result = do { mklink $dest $target } | complete 
+    let exit_code = $result.exit_code
+    if ($exit_code != 0) {
+      let stderr = $result.stderr | to-string
+      error make {
+        msg: $"Cannot create symlink using mklink\(($exit_code)\): ($stderr)\n Try to run this script with administrator privileges."
+      }
+    }
   } else if ("ln" | is-executable) {
     run-external "ln" "-s" $target $dest
   } else {
