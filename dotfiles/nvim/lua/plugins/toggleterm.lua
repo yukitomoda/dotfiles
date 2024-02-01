@@ -25,4 +25,9 @@ return {
             term:open()
         end, { silent = true })
     end,
+    lazy = true,
+    keys = {
+        '<Leader>G',
+        '<Leader>#'
+    }
 }
