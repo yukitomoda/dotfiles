@@ -14,13 +14,14 @@ config.front_end = 'Software'
 config.color_scheme = 'Wombat'
 config.colors = {
     scrollbar_thumb = '#226688',
-    cursor_bg = '#665566',
+    cursor_bg = '#995566',
     selection_bg = '#333355',
 }
 config.window_background_opacity = 0.9
 config.font = wezterm.font 'Cica'
 config.font_size = 20
 config.enable_scroll_bar = true
+config.cursor_thickness = 3
 
 -- キーバインド
 -- https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html#available-key-assignments
