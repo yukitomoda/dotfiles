@@ -1,3 +1,4 @@
+
 return {
     'nathom/filetype.nvim',
     config = function()
@@ -20,11 +21,6 @@ return {
 
                 -- The same as the ones above except the keys map to functions
                 function_extensions = {
-                    ["json"] = function()
-                        vim.bo.tabstop = 2
-                        vim.bo.shiftwidth = 2
-                        vim.bo.expandtab = true
-                    end,
                 },
                 function_literal = {
                     -- key: filename

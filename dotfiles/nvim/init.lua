@@ -13,6 +13,8 @@ vim.o.shellxquote = ""
 
 vim.api.nvim_set_var('mapleader', ' ')
 
+require('filetypes').setup()
+
 -- lazy.vim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
