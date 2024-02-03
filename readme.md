@@ -5,3 +5,4 @@
 - [Lua Language Server](https://luals.github.io)
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 - [lazygit](https://github.com/jesseduffield/lazygit/)
+- [delta](https://dandavison.github.io/delta/)
