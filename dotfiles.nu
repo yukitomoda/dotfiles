@@ -620,8 +620,8 @@ def main [
 ] {
   match ($task) {
     "init" => { dotfiles init --force=$force },
-    "install" => { dotfiles install --force=$force ...$rest},
-    "uninstall" => { dotfiles uninstall ...$rest},
+    "install" => { dotfiles install --force=$force ...($rest | default [])},
+    "uninstall" => { dotfiles uninstall ...($rest | default [])},
     "ls" => { dotfiles ls },
     "status" => { dotfiles status },
     _ => {
