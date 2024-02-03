@@ -510,6 +510,36 @@ export def "dotfiles remove" [
   print $"The entry ($name) was removed successfully."
 }
 
+export def "dotfiles get path" [
+  name: string,
+  --platform(-P): string
+] {
+  let meta_platform = (metadata $platform)
+  assert-has-config
+
+  let config = load-config
+  $config | assert-has-entry $name
+
+  let platform = $platform | default (get-host-name)
+  
+  let path = $config
+    | get-entry $name
+    | get path
+    | get -i $platform
+
+  if ($path == null) {
+    error make {
+      msg: $"The platform ($platform) is not supported for ($name).",
+      label: {
+        text: "This platform is not supported.",
+        span: $meta_platform.span
+      }
+    }
+  } else {
+    $path
+  }
+}
+
 export def "dotfiles set path" [
   name: string,
   path: string,
