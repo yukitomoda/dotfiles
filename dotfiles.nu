@@ -239,7 +239,7 @@ def add-entry [
   name: string,
   entry: record
 ] : record -> record {
-  $in | update entries {
+  $in | update entries {||
     insert $name $entry
   }
 }
@@ -247,7 +247,7 @@ def add-entry [
 def remove-entry [
   name: string
 ] : record -> record {
-  $in | update entries {
+  $in | update entries {||
     reject $name
   }
 }
@@ -257,9 +257,9 @@ def upsert-path [
   platform: string,
   path: string
 ] : recrod -> record {
-  $in | update entries {
-    update $name {
-      update path {
+  $in | update entries {||
+    update $name {||
+      update path {||
         upsert $platform $path
       }
     }
@@ -463,7 +463,7 @@ export def "dotfiles new file" [
   create-empty-entry-stuff $name "file"
   $config
     | add-entry $name (create-file-entry "file")
-    | when ($path != null) { upsert-path $name ($platform | default (get-host-name)) $path }
+    | when ($path != null) {|| upsert-path $name ($platform | default (get-host-name)) $path }
     | save-config -f
 }
 
@@ -489,7 +489,7 @@ export def "dotfiles new dir" [
   create-empty-entry-stuff $name "dir"
   $config
     | add-entry $name (create-file-entry "dir")
-    | when ($path != null) { upsert-path $name ($platform | default (get-host-name)) $path }
+    | when ($path != null) {|| upsert-path $name ($platform | default (get-host-name)) $path }
     | save-config -f
 }
 
