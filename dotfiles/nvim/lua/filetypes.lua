@@ -18,5 +18,11 @@ return {
             vim.bo.shiftwidth = 2
             vim.bo.expandtab = true
         end)
+
+        ft("yaml", function()
+            vim.bo.tabstop = 2
+            vim.bo.shiftwidth = 2
+            vim.bo.expandtab = true
+        end)
     end
 }
