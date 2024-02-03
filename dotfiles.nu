@@ -528,31 +528,53 @@ export def "dotfiles set path" [
 }
 
 export def "dotfiles install" [
+  ...names: string,
   --force(-f)
 ] {
   assert-has-config
 
   let config = load-config
 
-  $config
-    | get entries
-    | items {|key, value|
-      $value | install-entry $key --force=$force
-    }
+  if (($names | length) == 0) {
+    $config
+      | get entries
+      | items {|key, value|
+        $value | install-entry $key --force=$force
+      }
+  } else {
+    $names
+      | each {|name|
+        $config | assert-has-entry $name
+        let entry = $config | get-entry $name
+        $entry | install-entry $name
+      }
+  }
     
   print $"Dotfiles installed successfully."
 }
 
-export def "dotfiles uninstall" [] {
+export def "dotfiles uninstall" [
+  ...names: string
+] {
   assert-has-config
 
   let config = load-config
 
-  $config
-    | get entries
-    | items {|key, value|
-      $value | uninstall-entry $key
-    }
+  if (($names | length) == 0) {
+    $config
+      | get entries
+      | items {|key, value|
+        $value | uninstall-entry $key
+      }
+  } else {
+    $names
+      | each {|name|
+        $config | assert-has-entry $name
+        let entry = $config | get-entry $name
+        $entry | uninstall-entry $name
+      }
+  }
+
     
   print $"Dotfiles uninstalled successfully."
 }
@@ -563,12 +585,13 @@ export def "dotfiles uninstall" [] {
 # and so on.
 def main [
   task: string # The task name to run: init, ls, status, install or uninstall
+  ...rest: any,
   --force(-f)
 ] {
   match ($task) {
     "init" => { dotfiles init --force=$force },
-    "install" => { dotfiles install --force=$force },
-    "uninstall" => { dotfiles uninstall },
+    "install" => { dotfiles install --force=$force ...$rest},
+    "uninstall" => { dotfiles uninstall ...$rest},
     "ls" => { dotfiles ls },
     "status" => { dotfiles status },
     _ => {
