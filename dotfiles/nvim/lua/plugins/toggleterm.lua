@@ -1,8 +1,7 @@
 vim.api.nvim_create_autocmd({"TermOpen"}, {
     pattern = {"term://*"},
-    callback = function(ev)
+    callback = function()
         local opts = {buffer = 0}
-        vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
         vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], opts)
         vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
     end
