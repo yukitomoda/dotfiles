@@ -8,11 +8,15 @@ local function setup_lua_ls(lspconfig)
                         runtime = {
                             version = 'LuaJIT'
                         },
+                        diagnostics = {
+                            'vim'
+                        },
                         workspace = {
                             checkThirdParty = false,
-                            library = {
-                                vim.env.VIMRUNTIME
-                            }
+                            library = vim.api.nvim_get_runtime_file('lua', true),
+                        },
+                        telemetry = {
+                            enable = false
                         }
                     }
                 })
