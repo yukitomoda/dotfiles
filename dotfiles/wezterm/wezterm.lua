@@ -42,5 +42,7 @@ config.keys = {
     { key = 'n', mods = 'ALT', action = act.ActivateTabRelative(1) },
 }
 
+-- その他動作
+config.check_for_updates = false
 
 return config
