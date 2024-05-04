@@ -13,3 +13,11 @@
 (少なくともNerd fontが必要)
 
 [Cica](https://github.com/miiton/Cica)
+
+## setup
+
+Windowsの場合、シンボリックリンクを作るために管理者権限が必要
+
+```console
+$ nu dotfiles.nu install
+```
