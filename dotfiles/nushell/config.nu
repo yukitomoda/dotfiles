@@ -762,6 +762,10 @@ $env.config = {
 }
 
 # starship
+mkdir ~/.cache/starship
+if not ("~/.cache/starship/init.nu" | path exists) {
+    starship init nu | save -f ~/.cache/starship/init.nu
+}
 use ~/.cache/starship/init.nu
 
 # nuscript
