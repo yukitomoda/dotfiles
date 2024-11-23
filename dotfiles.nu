@@ -38,7 +38,7 @@ def get-symlink-target-type [] : string -> string {
 }
 
 def get-host-name [] {
-  (sys).host.name
+  (sys host).name
 }
 
 def is-windows [] : nothing -> bool {
