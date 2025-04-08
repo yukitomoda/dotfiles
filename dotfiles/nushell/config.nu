@@ -214,11 +214,6 @@ $env.config = {
         }
     }
 
-    filesize: {
-        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-        format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
-    }
-
     cursor_shape: {
         emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
         vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
@@ -247,7 +242,7 @@ $env.config = {
 		# 133;C - Mark pre-execution
 		# 133;D;exit - Mark execution finished with exit code
 		# This is used to enable terminals to know where the prompt is, the command is, where the command finishes, and where the output of the command is
-		osc133: true
+		osc133: false
 		# osc633 is closely related to osc133 but only exists in visual studio code (vscode) and supports their shell integration features
 		# 633;A - Mark prompt start
 		# 633;B - Mark prompt end
