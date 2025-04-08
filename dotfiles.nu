@@ -115,7 +115,7 @@ def overwrite [
 }
 
 def prompt-overwrite [
-] : string -> boolean {
+] : string -> bool {
   let path = $in
   let answer = (["yes", "no"] | input list $"($path) already exists. Do you want to overwrite?");
   $answer == "yes"
@@ -159,7 +159,7 @@ def load-config [] : nothing -> record {
 
 def save-config [
   --force(-f)
-] : table -> nothing {
+] : record -> nothing {
   $in | save --force=($force) $DOTFILES_CONFIG
 }
 
@@ -174,7 +174,7 @@ def assert-has-config [] {
 def create-empty-entry-stuff [
   name: string,
   type: string
-] : string -> nothing {
+] : nothing -> nothing {
   match ($type) {
     "file" => {
       touch ($name | get-entry-files-path)
@@ -194,7 +194,7 @@ def import-entry-stuff [
 
 def remove-entry-stuff [
   name: string
-] : string -> nothing {
+] : nothing -> nothing {
   ($name | get-entry-files-path) | remove-file-dir-symlink
 }
 
@@ -256,7 +256,7 @@ def upsert-path [
   name: string,
   platform: string,
   path: string
-] : recrod -> record {
+] : record -> record {
   $in | update entries {||
     update $name {||
       update path {||
